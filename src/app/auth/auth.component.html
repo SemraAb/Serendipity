@@ -1,0 +1,62 @@
+
+
+<div class="container mt-3">
+    <div class="row justify-content-md-center"  >
+        <div class="col-xs-12 col-lg-6 col.md-8">
+            <div *ngIf="error" class="alert alert-danger"> {{ error }}</div>
+            <div *ngIf="isLoading" style="text-align: center;">
+                <app-loading-spinner></app-loading-spinner>
+            </div>
+            <form #authForm ="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+                <div class="mb-3 form-group">
+                    <label for="email" class="form-label">Email Address </label>
+                    <input 
+                    id="email" 
+                    class="form-control" 
+                    aria-describedby="emailHelp"
+                    ngModel 
+                    type="email"
+                    name="email"
+                    required
+                    email>
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                   
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="password" class="form-label">Password </label>
+                    <input 
+                    ngModel="password1"
+                    type="password" 
+                    id="password" 
+                    class="form-control"
+                    ngModel 
+                    name="password"
+                    required
+                    minlength="6"
+                    >
+                    <label *ngIf="!isLoginMode" for="passwordRep"  class="form-label">Repeat Password </label>
+                    <input 
+                    *ngIf="!isLoginMode"
+                    ngModel ="repeatPassword"
+                    type="password" 
+                    id="passwordRepeat" 
+                    class="form-control"
+                    ngModel
+                    name="passwordRep"
+                    required
+                    minlength="6"
+                    
+                    >
+                </div>
+                <!-- <div class="alert alert-danger" *ngIf="authForm.invalid && authForm.touched">
+                    <p *ngIf="authForm.errors.required"> It can not be empty </p>
+                    <p *ngIf="authForm.errors.minlength"> At leats 6 character </p>
+                 </div> -->
+            <div>
+                <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid"> {{ isLoginMode ? 'Login' : 'Sign Up' }}</button>  |  
+                <button class="btn btn-primary" type="button" (click)="onSwitchMode()">Switch to {{ isLoginMode ? 'Sign Up' : 'Login '}}</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>

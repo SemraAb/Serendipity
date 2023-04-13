@@ -1,0 +1,51 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height:40px;">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav col">
+
+                <li class="nav-item me-3">Welcome to our website</li>
+                <li class="nav-item"> Call us : +994 055 555 55 55</li>
+            </ul>
+
+            <ul class="navbar-nav col d-flex flex-row-reverse">
+                <li *ngIf="!isAuthenticated" class="nav-item">
+                    <a routerLink="/auth" class="nav-link">Login</a>
+                </li>
+                <li *ngIf="isAuthenticated" class="nav-item">
+                    <a routerLink="/auth" class="nav-link">Logout</a>
+                </li>
+                <li class="nav-item me-3">
+                    <a routerLink="/auth" class="nav-link">Wishlist</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<nav class="navbar navbar-light navbar-expand-md " style="background-color: #e3f2fd;">
+    <div class="container">
+        <a href="/main" class="navbar-brand fs-4 me-5"> Serendipity </a>
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a href="" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link active">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link active">Product</a>
+            </li>
+            <li class="nav-item" *ngIf="">
+                <a href="" class="nav-link active">Edit</a>
+            </li>          
+        </ul>
+
+        <form class="d-flex me-3">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
